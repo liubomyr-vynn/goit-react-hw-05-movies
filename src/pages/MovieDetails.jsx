@@ -1,6 +1,12 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { useState, useEffect, useRef, Suspense } from 'react';
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useParams,
+} from 'react-router-dom';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState({});
@@ -8,6 +14,7 @@ const MovieDetails = () => {
   const [genres, setGenres] = useState([]);
   const params = useParams();
   const location = useLocation();
+  const backLinkLocationRef = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     const options = {
@@ -40,8 +47,9 @@ const MovieDetails = () => {
 
   return (
     <div>
-      <Link to={location.state?.from ?? '/'}>Return</Link>
+      <Link to={backLinkLocationRef.current}>Return</Link>
       <h2>{movie.original_title}</h2>
+      <p>User score: {parseInt(`${movie.vote_average * 10}`)}%</p>
       {poster && <img src={poster} alt={movie.original_title} />}
       <h3>Overview</h3>
       <p>{movie.overview}</p>
@@ -53,13 +61,15 @@ const MovieDetails = () => {
       <h3>Additional information</h3>
       <ul>
         <li>
-          <Link to="cast">Cast</Link>
+          <NavLink to="cast">Cast</NavLink>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <NavLink to="reviews">Reviews</NavLink>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
