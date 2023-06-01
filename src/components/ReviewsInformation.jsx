@@ -22,7 +22,7 @@ const ReviewsInformation = () => {
     axios
       .request(options)
       .then(function (response) {
-        // console.log(response.data);
+
         setReviewList(response.data.results);
       })
       .catch(function (error) {
