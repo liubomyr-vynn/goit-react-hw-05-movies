@@ -2,9 +2,10 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-import placeholderImage from '../images/actor.jpg';
+import placeholderImage from '../../images/actor.jpg';
+import { ActorName, CastItem, CastItemImage, CastList } from './Cast.styled';
 
-const CastInformation = () => {
+const Cast = () => {
   const [castList, setCastList] = useState([]);
 
   const params = useParams();
@@ -34,30 +35,25 @@ const CastInformation = () => {
   return (
     <div>
       {castList.length > 0 && (
-        <ul>
+        <CastList>
           {castList.map(actor => (
-            <li key={actor.id}>
+            <CastItem key={actor.id}>
               {actor.profile_path !== null ? (
-                <img
-                  src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
+                <CastItemImage
+                  src={`https://image.tmdb.org/t/p/w300${actor.profile_path}`}
                   alt={actor.name}
                 />
               ) : (
-                <img
-                  src={placeholderImage}
-                  alt={actor.name}
-                  width="200"
-                  height="300"
-                />
+                <CastItemImage src={placeholderImage} alt={actor.name} />
               )}
-              <p>{actor.name}</p>
-            </li>
+              <ActorName>{actor.name}</ActorName>
+            </CastItem>
           ))}
-        </ul>
+        </CastList>
       )}
       {castList.length === 0 && <p>We don't have any cast for this movie.</p>}
     </div>
   );
 };
 
-export default CastInformation;
+export default Cast;

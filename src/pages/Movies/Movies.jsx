@@ -2,6 +2,8 @@ import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import { MoviesContainer, MoviesForm, MoviesList } from './Movies.styled';
+
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [inputValue, setInputValue] = useState('');
@@ -53,8 +55,8 @@ const Movies = () => {
   };
 
   return (
-    <div className="Searchbar">
-      <form onSubmit={handleSearch} className="SearchForm">
+    <MoviesContainer>
+      <MoviesForm onSubmit={handleSearch} className="SearchForm">
         <label className="SearchForm-button-label" htmlFor="id-1"></label>
         <input
           onChange={updateQueryString}
@@ -70,9 +72,9 @@ const Movies = () => {
         <button type="submit" className="SearchForm-button">
           Search
         </button>
-      </form>
+      </MoviesForm>
       {moviesList.length > 0 && (
-        <ul>
+        <MoviesList>
           {moviesList.map(movie => (
             <li key={movie.id}>
               <Link to={`${movie.id}`} state={{ from: location }}>
@@ -80,9 +82,9 @@ const Movies = () => {
               </Link>
             </li>
           ))}
-        </ul>
+        </MoviesList>
       )}
-    </div>
+    </MoviesContainer>
   );
 };
 

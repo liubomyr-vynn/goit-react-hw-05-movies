@@ -7,6 +7,14 @@ import {
   useLocation,
   useParams,
 } from 'react-router-dom';
+import {
+  AdditionalInfo,
+  AdditionalList,
+  BackLinkInfo,
+  MainInfo,
+  MainInfoContainer,
+  MovieDetailsContainer,
+} from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState({});
@@ -46,31 +54,43 @@ const MovieDetails = () => {
   }, [params.movieId]);
 
   return (
-    <div>
-      <Link to={backLinkLocationRef.current}>Return</Link>
-      <h2>{movie.original_title}</h2>
-      <p>User score: {parseInt(`${movie.vote_average * 10}`)}%</p>
-      {poster && <img src={poster} alt={movie.original_title} />}
-      <h3>Overview</h3>
-      <p>{movie.overview}</p>
-      <h3>Genres</h3>
-      <ul>
-        {genres !== [] &&
-          genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
-      </ul>
-      <h3>Additional information</h3>
-      <ul>
-        <li>
-          <NavLink to="cast">Cast</NavLink>
-        </li>
-        <li>
-          <NavLink to="reviews">Reviews</NavLink>
-        </li>
-      </ul>
+    <MovieDetailsContainer>
+      <BackLinkInfo>
+        {' '}
+        <Link to={backLinkLocationRef.current}>Return</Link>
+      </BackLinkInfo>
+
+      <MainInfo>
+        {poster && <img src={poster} alt={movie.original_title} />}
+        <MainInfoContainer>
+          <h2>{movie.original_title}</h2>
+          <p>User score: {parseInt(`${movie.vote_average * 10}`)}%</p>
+          <h3>Overview</h3>
+          <p>{movie.overview}</p>
+          <h3>Genres</h3>
+          <ul>
+            {genres !== [] &&
+              genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
+          </ul>
+        </MainInfoContainer>
+      </MainInfo>
+      <AdditionalInfo>
+        {' '}
+        <h3>Additional information</h3>
+        <AdditionalList>
+          <li>
+            <NavLink to="cast">Cast</NavLink>
+          </li>
+          <li>
+            <NavLink to="reviews">Reviews</NavLink>
+          </li>
+        </AdditionalList>
+      </AdditionalInfo>
+
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>
-    </div>
+    </MovieDetailsContainer>
   );
 };
 export default MovieDetails;

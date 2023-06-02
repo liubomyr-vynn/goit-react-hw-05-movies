@@ -2,6 +2,8 @@ import axios from 'axios';
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
+import { HomeContainer, HomeList } from './Home.styled';
+
 const Home = () => {
   const [trending, setTrending] = useState([]);
   const location = useLocation();
@@ -28,17 +30,20 @@ const Home = () => {
   }, []);
 
   return (
-    <ul>
-      {trending.map(dataItem => {
-        return (
-          <li key={dataItem.id}>
-            <Link to={`/movies/${dataItem.id}`} state={{ from: location }}>
-              {dataItem.title}
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
+    <HomeContainer>
+      {' '}
+      <HomeList>
+        {trending.map(dataItem => {
+          return (
+            <li key={dataItem.id}>
+              <Link to={`/movies/${dataItem.id}`} state={{ from: location }}>
+                {dataItem.title}
+              </Link>
+            </li>
+          );
+        })}
+      </HomeList>
+    </HomeContainer>
   );
 };
 export default Home;

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const ReviewsInformation = () => {
+const Reviews = () => {
   const [reviewList, setReviewList] = useState('');
 
   const params = useParams();
@@ -22,7 +22,6 @@ const ReviewsInformation = () => {
     axios
       .request(options)
       .then(function (response) {
-
         setReviewList(response.data.results);
       })
       .catch(function (error) {
@@ -48,4 +47,4 @@ const ReviewsInformation = () => {
     </div>
   );
 };
-export default ReviewsInformation;
+export default Reviews;
