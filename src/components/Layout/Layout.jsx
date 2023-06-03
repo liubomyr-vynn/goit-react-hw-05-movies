@@ -10,10 +10,14 @@ const Layout = () => {
         <Container>
           <HeaderList>
             <HeaderItem>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/" style={{ textDecoration: 'none' }}>
+                Home
+              </NavLink>
             </HeaderItem>
             <HeaderItem>
-              <NavLink to="/movies">Movies</NavLink>
+              <NavLink to="/movies" style={{ textDecoration: 'none' }}>
+                Movies
+              </NavLink>
             </HeaderItem>
           </HeaderList>
         </Container>
