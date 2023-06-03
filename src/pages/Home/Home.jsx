@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-import { HomeContainer, HomeList } from './Home.styled';
+import { HomeContainer, HomeList, HomeTitle } from './Home.styled';
 
 const Home = () => {
   const [trending, setTrending] = useState([]);
@@ -31,7 +31,7 @@ const Home = () => {
 
   return (
     <HomeContainer>
-      {' '}
+      <HomeTitle>Trending movies:</HomeTitle>
       <HomeList>
         {trending.map(dataItem => {
           return (
