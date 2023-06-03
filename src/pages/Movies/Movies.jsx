@@ -1,8 +1,15 @@
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { ImSearch } from 'react-icons/im';
 import axios from 'axios';
 
-import { MoviesContainer, MoviesForm, MoviesList } from './Movies.styled';
+import {
+  MoviesButton,
+  MoviesContainer,
+  MoviesForm,
+  MoviesInput,
+  MoviesList,
+} from './Movies.styled';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -56,9 +63,8 @@ const Movies = () => {
 
   return (
     <MoviesContainer>
-      <MoviesForm onSubmit={handleSearch} className="SearchForm">
-        <label className="SearchForm-button-label" htmlFor="id-1"></label>
-        <input
+      <MoviesForm onSubmit={handleSearch}>
+        <MoviesInput
           onChange={updateQueryString}
           value={name}
           type="text"
@@ -66,12 +72,11 @@ const Movies = () => {
           autoComplete="off"
           autoFocus
           name="search"
-          className="SearchForm-input"
           id="id-1"
         />
-        <button type="submit" className="SearchForm-button">
-          Search
-        </button>
+        <MoviesButton type="submit">
+          <ImSearch style={{ width: 18, height: 18 }} />
+        </MoviesButton>
       </MoviesForm>
       {moviesList.length > 0 && (
         <MoviesList>
