@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const MoviesContainer = styled.div`
@@ -27,7 +28,7 @@ export const MoviesInput = styled.input`
   cursor: pointer;
   font-weight: 600;
   border-radius: 3px;
-  padding: 8px 12px;
+  padding: 8px;
   border: 1px solid #42ecc2;
   line-height: 1.5;
   font-size: 16px;
@@ -48,14 +49,18 @@ export const MoviesButton = styled.button`
   cursor: pointer;
   font-weight: 600;
   border-radius: 3px;
-  padding: 8px 20px;
+  padding: 8px 15px;
   border: 1px solid #42ecc2;
   line-height: 1.15;
   font-size: 16px;
-  margin-left: 15px;
+  margin-left: 5px;
 
   &:hover {
     transition: all 0.1s ease;
     box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
   }
+`;
+
+export const ItemLink = styled(Link)`
+  text-decoration: none;
 `;
