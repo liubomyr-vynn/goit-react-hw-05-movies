@@ -78,8 +78,8 @@ export const StyledNavLink = styled(NavLink)`
     color: #ffffff;
   }
 
-  &:active {
-    background: #04111f;
-    color: rgb(255, 255, 255, 0.7);
+  &.active {
+    background: #0d2a49;
+    color: #ffffff;
   }
 `;
