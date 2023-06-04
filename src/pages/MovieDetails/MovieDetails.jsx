@@ -1,19 +1,14 @@
 import axios from 'axios';
 import { useState, useEffect, useRef, Suspense } from 'react';
-import {
-  Link,
-  NavLink,
-  Outlet,
-  useLocation,
-  useParams,
-} from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import {
   AdditionalInfo,
   AdditionalList,
-  BackLinkInfo,
+  BackLink,
   MainInfo,
   MainInfoContainer,
   MovieDetailsContainer,
+  StyledLink,
 } from './MovieDetails.styled';
 import Loader from '../../components/Loader/Loader';
 
@@ -67,14 +62,12 @@ const MovieDetails = () => {
 
   return (
     <MovieDetailsContainer>
-      <BackLinkInfo>
-        <Link
-          to={backLinkLocationRef.current}
-          style={{ textDecoration: 'none' }}
-        >
-          Return
-        </Link>
-      </BackLinkInfo>
+      <BackLink
+        to={backLinkLocationRef.current}
+        style={{ textDecoration: 'none' }}
+      >
+        Return
+      </BackLink>
 
       <MainInfo>
         {loading ? (
@@ -105,10 +98,10 @@ const MovieDetails = () => {
         <h3>Additional information:</h3>
         <AdditionalList>
           <li>
-            <NavLink to="cast">Cast</NavLink>
+            <StyledLink to="cast">Cast</StyledLink>
           </li>
           <li>
-            <NavLink to="reviews">Reviews</NavLink>
+            <StyledLink to="reviews">Reviews</StyledLink>
           </li>
         </AdditionalList>
       </AdditionalInfo>
