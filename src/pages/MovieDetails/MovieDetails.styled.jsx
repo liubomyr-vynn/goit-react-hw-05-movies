@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const MovieDetailsContainer = styled.div`
   display: flex;
@@ -9,23 +10,41 @@ export const MovieDetailsContainer = styled.div`
   margin-bottom: 20px;
 `;
 
-export const BackLinkInfo = styled.div`
-  margin-right: auto;
-  display: inline-block;
-
-  outline: none;
+export const BackLink = styled(NavLink)`
+  text-decoration: none;
+  align-items: center;
+  background-color: #226822;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
   cursor: pointer;
-  font-weight: 600;
-  border-radius: 3px;
-  padding: 8px 20px;
-  border: 1px solid #42ecc2;
-  line-height: 1.15;
-  font-size: 16px;
-  margin-left: 15px;
+  display: inline-flex;
 
-  &:hover {
-    transition: all 0.1s ease;
-    box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 100px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+
+  &:hover,
+  &:focus {
+    background-color: #497949;
+    color: #ffffff;
   }
 `;
 
@@ -58,4 +77,47 @@ export const AdditionalInfo = styled.div`
 export const AdditionalList = styled.ul`
   display: flex;
   gap: 20px;
+`;
+
+export const StyledLink = styled(NavLink)`
+  text-decoration: none;
+  align-items: center;
+  background-color: #0a66c2;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  width: 100px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+
+  &:hover,
+  &:focus {
+    background-color: #0f2644;
+    color: #ffffff;
+  }
+
+  &:active {
+    background: #04111f;
+    color: rgb(255, 255, 255, 0.7);
+  }
 `;
