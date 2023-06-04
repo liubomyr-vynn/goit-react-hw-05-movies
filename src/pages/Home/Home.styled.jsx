@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HomeContainer = styled.div`
@@ -14,4 +15,12 @@ export const HomeList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 8px;
+`;
+
+export const ListItem = styled.li`
+  text-decoration: none;
+`;
+
+export const ItemLink = styled(Link)`
+  text-decoration: none;
 `;
