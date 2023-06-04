@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -6,22 +7,17 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.header`
-  /* padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: #b4b4b4;
-  margin-bottom: 20px; */
   top: 0;
   left: 0;
   position: sticky;
   z-index: 1100;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;
+  align-items: center; */
   min-height: 40px;
-  padding-right: 24px;
-  padding-left: 24px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
   color: #fff;
   background-color: #858586ea;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
@@ -30,27 +26,60 @@ export const Header = styled.header`
 `;
 
 export const HeaderList = styled.ul`
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 18px;
-  margin-left: 40px;
+  list-style-type: none;
+
+  overflow: hidden;
 `;
 
 export const HeaderItem = styled.li`
   display: inline-block;
-  width: 70px;
+  margin-right: 5px;
+
   color: white;
   text-align: center;
   border-radius: 3px;
   padding: 10px 0;
-  &:active {
-    background-color: #995618;
-  }
-  &:hover {
-    background-color: #8b96f7;
-  }
 `;
 
-// &:active {
-//   border-bottom: 1px solid #50ec42;
-// }
+export const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  align-items: center;
+  background-color: #0a66c2;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  width: 100px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+
+  &:hover,
+  &:focus {
+    background-color: #0f2644;
+    color: #ffffff;
+  }
+
+  &:active {
+    background: #04111f;
+    color: rgb(255, 255, 255, 0.7);
+  }
+`;
