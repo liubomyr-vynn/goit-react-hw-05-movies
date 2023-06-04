@@ -12,7 +12,7 @@ import {
 } from './MovieDetails.styled';
 import Loader from '../../components/Loader/Loader';
 
-import placeholderImage from '../../images/actor.jpg';
+import placeholderImage from '../../images/poster.jpg';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState({});
