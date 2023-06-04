@@ -11,6 +11,7 @@ import {
   StyledLink,
 } from './MovieDetails.styled';
 import Loader from '../../components/Loader/Loader';
+import { ImBackward2 } from 'react-icons/im';
 
 import placeholderImage from '../../images/poster.jpg';
 
@@ -66,7 +67,7 @@ const MovieDetails = () => {
         to={backLinkLocationRef.current}
         style={{ textDecoration: 'none' }}
       >
-        Return
+        <ImBackward2 />
       </BackLink>
 
       <MainInfo>
